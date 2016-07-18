@@ -11801,7 +11801,7 @@ Classification. The purpose of this analysis is to identify students who need he
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11870,7 +11870,8 @@ Classification. The purpose of this analysis is to identify students who need he
 <span class="n">n_failed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="c1"># grad_rate = n_passed / (n_passed + n_failed) * 100</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span> <span class="o">*</span><span class="mf">100.</span>
 
 <span class="c1"># Print the results</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Total number of students: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">))</span>
@@ -12088,7 +12089,9 @@ Feature values:
 <span class="c1">#random_index_list = random.sample([], num_train)</span>
 
 <span class="c1"># or just use train_test_split is easier</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="n">num_train</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="n">num_train</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1"># This is better</span>
+<span class="c1"># X_train, X_test, y_train, y_test = train_test_split(X_all, y_all, stratify=y_all, train_size=num_train, random_state=42)</span>
 
 <span class="c1">#X_train = None</span>
 <span class="c1">#X_test = None</span>
@@ -12177,7 +12180,7 @@ I use</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12250,7 +12253,7 @@ I use</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12260,7 +12263,8 @@ I use</p>
 
 <span class="c1"># TODO: Initialize the three models</span>
 <span class="n">clf_A</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="c1"># Added random_state</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="c1"># clf_C = KNeighborsClassifier(n_neighbors=2)</span>
 <span class="n">clf_C</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
 
@@ -12281,10 +12285,14 @@ I use</p>
 <span class="sd">train_predict(clf_B, X_train[:X_train_100], y_train[:y_train_100], X_test, y_test)</span>
 <span class="sd">train_predict(clf_B, X_train[:X_train_200], y_train[:y_train_200], X_test, y_test)</span>
 <span class="sd">train_predict(clf_B, X_train[:X_train_300], y_train[:y_train_300], X_test, y_test)</span>
+<span class="sd">train_predict(clf_C, X_train[:X_train_100], y_train[:y_train_100], X_test, y_test)</span>
+<span class="sd">train_predict(clf_C, X_train[:X_train_200], y_train[:y_train_200], X_test, y_test)</span>
+<span class="sd">train_predict(clf_C, X_train[:X_train_300], y_train[:y_train_300], X_test, y_test)</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[:</span><span class="n">X_train_100</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">y_train_100</span><span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[:</span><span class="n">X_train_200</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">y_train_200</span><span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[:</span><span class="n">X_train_300</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">y_train_300</span><span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">clf</span> <span class="ow">in</span> <span class="p">[</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">clf_B</span><span class="p">,</span> <span class="n">clf_C</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]:</span>
+        <span class="n">train_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[:</span><span class="n">size</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">size</span><span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12297,24 +12305,78 @@ I use</p>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training a KNeighborsClassifier using a training set size of 100. . .
-Trained model in 0.0007 seconds
-Made predictions in 0.0017 seconds.
-F1 score for training set: 0.8060.
-Made predictions in 0.0011 seconds.
-F1 score for test set: 0.7246.
-Training a KNeighborsClassifier using a training set size of 200. . .
-Trained model in 0.0006 seconds
-Made predictions in 0.0025 seconds.
-F1 score for training set: 0.8800.
+<pre>Training a GaussianNB using a training set size of 100. . .
+Trained model in 0.0015 seconds
+Made predictions in 0.0003 seconds.
+F1 score for training set: 0.8467.
+Made predictions in 0.0003 seconds.
+F1 score for test set: 0.8029.
+
+
+Training a GaussianNB using a training set size of 200. . .
+Trained model in 0.0009 seconds
+Made predictions in 0.0003 seconds.
+F1 score for training set: 0.8406.
+Made predictions in 0.0003 seconds.
+F1 score for test set: 0.7244.
+
+
+Training a GaussianNB using a training set size of 300. . .
+Trained model in 0.0008 seconds
+Made predictions in 0.0004 seconds.
+F1 score for training set: 0.8038.
+Made predictions in 0.0003 seconds.
+F1 score for test set: 0.7634.
+
+
+Training a SVC using a training set size of 100. . .
+Trained model in 0.0013 seconds
+Made predictions in 0.0009 seconds.
+F1 score for training set: 0.8777.
+Made predictions in 0.0007 seconds.
+F1 score for test set: 0.7746.
+
+
+Training a SVC using a training set size of 200. . .
+Trained model in 0.0037 seconds
+Made predictions in 0.0021 seconds.
+F1 score for training set: 0.8679.
+Made predictions in 0.0010 seconds.
+F1 score for test set: 0.7815.
+
+
+Training a SVC using a training set size of 300. . .
+Trained model in 0.0079 seconds
+Made predictions in 0.0045 seconds.
+F1 score for training set: 0.8761.
 Made predictions in 0.0015 seconds.
+F1 score for test set: 0.7838.
+
+
+Training a KNeighborsClassifier using a training set size of 100. . .
+Trained model in 0.0005 seconds
+Made predictions in 0.0012 seconds.
+F1 score for training set: 0.8060.
+Made predictions in 0.0010 seconds.
+F1 score for test set: 0.7246.
+
+
+Training a KNeighborsClassifier using a training set size of 200. . .
+Trained model in 0.0007 seconds
+Made predictions in 0.0033 seconds.
+F1 score for training set: 0.8800.
+Made predictions in 0.0014 seconds.
 F1 score for test set: 0.7692.
+
+
 Training a KNeighborsClassifier using a training set size of 300. . .
 Trained model in 0.0008 seconds
-Made predictions in 0.0050 seconds.
+Made predictions in 0.0052 seconds.
 F1 score for training set: 0.8809.
-Made predictions in 0.0019 seconds.
+Made predictions in 0.0021 seconds.
 F1 score for test set: 0.7801.
+
+
 </pre>
 </div>
 </div>
@@ -12496,10 +12558,14 @@ F1 score for test set: 0.7801.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<ul>
-<li>Firstly, SVC classifier difined the separation line by using training data.</li>
-<li>Then, test data are divided based on the separation line.</li>
-</ul>
+<ol>
+<li><p>The SVM takes data about past students (age, gender, family, etc), and uses them to create a function that draws a boundary between the students who graduated and those who did not. The boundary should be drawn so as to maximize the length between the groups.</p>
+</li>
+<li><p>Often, though, it's not easy to draw a decision boundary in low dimensions, so the SVM separates the passing and failing students by transforming from imput space to feature space. In feature space, SVM can draw the plane which can separate the group of data.</p>
+</li>
+<li><p>Using this function created with students we already know graduated or not, the SVM can look at new students' data and predict which groups each student should be assigned.</p>
+</li>
+</ol>
 
 </div>
 </div>
