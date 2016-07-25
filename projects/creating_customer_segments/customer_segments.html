@@ -11782,7 +11782,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11835,7 +11835,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display a description of the dataset</span>
@@ -11962,7 +11962,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Select three indices of your choice you wish to sample from the dataset</span>
@@ -11972,6 +11972,8 @@ div#notebook {
 <span class="n">samples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Chosen samples of wholesale customers dataset:&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -12040,6 +12042,108 @@ div#notebook {
 
 </div>
 
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>669.0</td>
+      <td>3860.0</td>
+      <td>-390.0</td>
+      <td>-2858.0</td>
+      <td>-207.0</td>
+      <td>-187.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-4943.0</td>
+      <td>4014.0</td>
+      <td>1617.0</td>
+      <td>-1310.0</td>
+      <td>412.0</td>
+      <td>251.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-5647.0</td>
+      <td>3012.0</td>
+      <td>-267.0</td>
+      <td>-667.0</td>
+      <td>635.0</td>
+      <td>6319.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4165.0</td>
+      <td>6029.0</td>
+      <td>2805.0</td>
+      <td>-1312.0</td>
+      <td>1858.0</td>
+      <td>372.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1447.0</td>
+      <td>6183.0</td>
+      <td>4812.0</td>
+      <td>236.0</td>
+      <td>2477.0</td>
+      <td>810.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-2151.0</td>
+      <td>5181.0</td>
+      <td>2928.0</td>
+      <td>879.0</td>
+      <td>2700.0</td>
+      <td>6878.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12063,9 +12167,21 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>[0] One third of sales comes from Fresh. Also, The sales of Frozen is less than 10% of total sales. This means that establishment would be a street food restaurant.</li>
-<li>[1] Around one third of sales comes from Milk, and another one third is from Grocery. It would be a cafe because cafes use a lot of milk and grocery, and sometimes need fresh, frozen and delicatessen to make lunch menu.</li>
-<li>[2] Each elements are well-balanced. When compared with other costomers, Delicatessen shows a big number of sales. This customer would be a supermarket, which has a delicatessen area inside.</li>
+<li><p>[0] One third of sales comes from Fresh. Also, The sales of Frozen is less than 10% of total sales. This means that establishment would be a street food restaurant.</p>
+<ul>
+<li>Additional comment: From the second and third table above, it looks Milk and Fresh are more than others. The establishment would be a combenience store which treats Fresh food.</li>
+</ul>
+</li>
+<li><p>[1] Around one third of sales comes from Milk, and another one third is from Grocery. It would be a cafe because cafes use a lot of milk and grocery, and sometimes need fresh, frozen and delicatessen to make lunch menu.</p>
+<ul>
+<li>Additional comment: It has high spending in relation to the category mean &amp; median for all categories except Fresh &amp; Frozen. It could be a medium-size retailer.</li>
+</ul>
+</li>
+<li><p>[2] Each elements are well-balanced. When compared with other costomers, Delicatessen shows a big number of sales. This customer would be a supermarket, which has a delicatessen area inside.</p>
+<ul>
+<li>Additional comment: Very small sales of Fresh. t means that this would be a kind of drug store/GMS with less Fresh food preparation</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -12093,7 +12209,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Make a copy of the DataFrame, using the &#39;drop&#39; function to drop the given feature</span>
@@ -12171,7 +12287,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Produce a scatter matrix for each pair of features in the data</span>
@@ -13959,7 +14075,11 @@ o+AAAAAASUVORK5CYII=
 <li>Grocery and Detergents_Paper</li>
 </ul>
 </li>
-<li>My answer in Question2 was Detergents_Paper and it is included.</li>
+<li>My answer in Question2 was Detergents_Paper and it is included.<ul>
+<li>Additional comment: This confirms my hypothesis above which feature should I remove. Detergents_Paper is not independent feature. However, the score was still bad because the data still include other non-independent features (Milk, Grocery).</li>
+<li>Regarding the data distribution, this is not normally distributed, but skewed right (positive skew)</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -13992,7 +14112,7 @@ o+AAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Scale the data using the natural logarithm</span>
@@ -17734,7 +17854,7 @@ QmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display the log-transformed sample data</span>
@@ -17825,10 +17945,13 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For each feature find the data points with extreme high or low values</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For each feature find the data points with extreme high or low value</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+
 <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">log_data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     
     <span class="c1"># TODO: Calculate Q1 (25th percentile of the data) for the given feature</span>
@@ -17843,10 +17966,14 @@ Once you have performed this implementation, the dataset will be stored in the v
     <span class="c1"># Display the outliers</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Data points considered outliers for the feature &#39;</span><span class="si">{}</span><span class="s2">&#39;:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">feature</span><span class="p">))</span>
     <span class="n">display</span><span class="p">(</span><span class="n">log_data</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">log_data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="n">step</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">log_data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="n">step</span><span class="p">))])</span>
+    <span class="n">cnt_tmp</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">log_data</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">log_data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="n">step</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">log_data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="n">step</span><span class="p">))]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cnt_tmp</span><span class="p">)</span>
+    <span class="n">cnt</span> <span class="o">+=</span> <span class="n">cnt_tmp</span>
+    
     
 <span class="c1"># OPTIONAL: Select the indices for data points you wish to remove</span>
 <span class="n">outliers</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">137</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="mi">161</span><span class="p">,</span> <span class="mi">171</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">183</span><span class="p">,</span> <span class="mi">184</span><span class="p">,</span> <span class="mi">187</span><span class="p">,</span> <span class="mi">193</span><span class="p">,</span> <span class="mi">203</span><span class="p">,</span> <span class="mi">218</span><span class="p">,</span> <span class="mi">233</span><span class="p">,</span> <span class="mi">264</span><span class="p">,</span> <span class="mi">285</span><span class="p">,</span> <span class="mi">289</span><span class="p">,</span> <span class="mi">304</span><span class="p">,</span> <span class="mi">305</span><span class="p">,</span> <span class="mi">325</span><span class="p">,</span> <span class="mi">343</span><span class="p">,</span> <span class="mi">353</span><span class="p">,</span> <span class="mi">356</span><span class="p">,</span> <span class="mi">357</span><span class="p">,</span> <span class="mi">412</span><span class="p">,</span> <span class="mi">420</span><span class="p">,</span> <span class="mi">429</span><span class="p">,</span> <span class="mi">439</span><span class="p">]</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
 <span class="c1"># Remove the outliers, if any were specified</span>
 <span class="n">good_data</span> <span class="o">=</span> <span class="n">log_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">log_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">outliers</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="c1"># print(good_data)</span>
@@ -18037,7 +18164,8 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Data points considered outliers for the feature &#39;Milk&#39;:
+<pre>Counter({96: 1, 65: 1, 66: 1, 355: 1, 357: 1, 193: 1, 128: 1, 171: 1, 305: 1, 353: 1, 304: 1, 81: 1, 338: 1, 218: 1, 412: 1, 95: 1})
+Data points considered outliers for the feature &#39;Milk&#39;:
 </pre>
 </div>
 </div>
@@ -18104,7 +18232,8 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Data points considered outliers for the feature &#39;Grocery&#39;:
+<pre>Counter({98: 1, 356: 1, 154: 1, 86: 1})
+Data points considered outliers for the feature &#39;Grocery&#39;:
 </pre>
 </div>
 </div>
@@ -18153,7 +18282,8 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Data points considered outliers for the feature &#39;Frozen&#39;:
+<pre>Counter({154: 1, 75: 1})
+Data points considered outliers for the feature &#39;Frozen&#39;:
 </pre>
 </div>
 </div>
@@ -18274,7 +18404,8 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Data points considered outliers for the feature &#39;Detergents_Paper&#39;:
+<pre>Counter({145: 1, 420: 1, 325: 1, 38: 1, 65: 1, 264: 1, 57: 1, 439: 1, 429: 1, 175: 1})
+Data points considered outliers for the feature &#39;Detergents_Paper&#39;:
 </pre>
 </div>
 </div>
@@ -18323,7 +18454,8 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Data points considered outliers for the feature &#39;Delicatessen&#39;:
+<pre>Counter({161: 1, 75: 1})
+Data points considered outliers for the feature &#39;Delicatessen&#39;:
 </pre>
 </div>
 </div>
@@ -18478,6 +18610,14 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 </div>
 
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Counter({128: 1, 289: 1, 66: 1, 233: 1, 203: 1, 109: 1, 142: 1, 183: 1, 184: 1, 137: 1, 154: 1, 187: 1, 285: 1, 343: 1})
+Counter({154: 3, 128: 2, 65: 2, 66: 2, 75: 2, 203: 1, 325: 1, 193: 1, 264: 1, 137: 1, 142: 1, 109: 1, 81: 1, 338: 1, 86: 1, 343: 1, 289: 1, 420: 1, 218: 1, 233: 1, 412: 1, 95: 1, 96: 1, 353: 1, 98: 1, 355: 1, 356: 1, 357: 1, 38: 1, 145: 1, 161: 1, 171: 1, 429: 1, 175: 1, 304: 1, 305: 1, 285: 1, 439: 1, 184: 1, 57: 1, 187: 1, 183: 1})
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -18499,7 +18639,12 @@ Once you have performed this implementation, the dataset will be stored in the v
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>Yes, there are some indexes considered as outliers for more than one feature. They would cause mislead, so they should be removed. All the data points outside of IQR are considered as outliers because they are different from other data points' distribution. </li>
+<li>Yes, there are some indexes considered as outliers for more than one feature. They would cause mislead, so they should be removed. All the data points outside of IQR are considered as outliers because they are different from other data points' distribution. <ul>
+<li>Additional comment: the multiple-category outliers are the followings:
+<pre><code>154: 3, 128: 2, 65: 2, 66: 2, 75: 2</code></pre>
+</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -18532,7 +18677,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Apply PCA by fitting the good data with the same number of dimensions as features</span>
@@ -18545,6 +18690,11 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 <span class="c1"># Generate PCA results plot</span>
 <span class="n">pca_results</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">pca_results</span><span class="p">(</span><span class="n">good_data</span><span class="p">,</span> <span class="n">pca</span><span class="p">)</span>
+
+<span class="n">pca_cumsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Cumulative explained variance with:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pca_cumsum</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> component(s) = </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">val</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -18554,6 +18704,19 @@ Once you have performed this implementation, the dataset will be stored in the v
 <div class="output_wrapper">
 <div class="output">
 
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cumulative explained variance with:
+1 component(s) = 48.73%
+2 component(s) = 71.63%
+3 component(s) = 83.29%
+4 component(s) = 92.82%
+5 component(s) = 97.54%
+6 component(s) = 100.00%
+</pre>
+</div>
+</div>
 
 <div class="output_area"><div class="prompt"></div>
 
@@ -18937,10 +19100,19 @@ kYiIiIiIBL3/BwDqTdKqQc9YAAAAAElFTkSuQmCC
 <p><strong>Answer:</strong></p>
 <ul>
 <li>The first and the second principal explains 0.4873 and 0.2291. In total, 0.7164 is explained.</li>
-<li>The first principal: Explained variance is 0.4873. It corresponds much to Detergents_Paper, Grocery and Milk. </li>
-<li>The second principal: Explained variance is 0.2291. It corresponds much to Fresh, Frozen and Delicatessen.</li>
-<li>The third principal: Explained variance is 0.1166. It increases when the sale of Fresh is increased and the sale of Frozen and Delicatessen is decreased.</li>
-<li>The fourth principal: Explained variance is 0.0953. It increases when the sale of Delicatessen is increased and the sale of Frozen and Dtergents_Paper is decreased.</li>
+<li>The first principal: Explained variance is 0.4873. It corresponds much to Detergents_Paper, Grocery and Milk. This might represent spending in household staples products that are purchased together.</li>
+<li>The second principal: Explained variance is 0.2291. It corresponds much to Fresh, Frozen and Delicatessen. This might represent the instantaneous eat and drink stuffs.</li>
+<li>The third principal: Explained variance is 0.1166. It increases when the sale of Fresh is increased and the sale of Frozen and Delicatessen is decreased. This might represent the customers' consumption style whether short-term (Fresh) or long-term(Detergents_paper, Frozen)</li>
+<li>The fourth principal: Explained variance is 0.0953. It increases when the sale of Delicatessen is increased and the sale of Frozen and Detergents_Paper is decreased. This might represent the cafe is more like icecream or dessert shop or more like a food court.<ul>
+<li>Additional comment: For the cumulative variance, please see the following. By using four components, we can explain 92.82%.<ul>
+<li>1 component(s) = 48.73%</li>
+<li>2 component(s) = 71.63%</li>
+<li>3 component(s) = 83.29%</li>
+<li>4 component(s) = 92.82%</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -18958,7 +19130,7 @@ kYiIiIiIBL3/BwDqTdKqQc9YAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display sample log-data after having a PCA transformation applied</span>
@@ -19046,7 +19218,7 @@ kYiIiIiIBL3/BwDqTdKqQc9YAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Apply PCA by fitting the good data with only two dimensions</span>
@@ -19079,7 +19251,7 @@ kYiIiIiIBL3/BwDqTdKqQc9YAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display sample log-data after applying PCA transformation in two dimensions</span>
@@ -19191,7 +19363,7 @@ kYiIiIiIBL3/BwDqTdKqQc9YAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Apply your clustering algorithm of choice to the reduced data </span>
@@ -19278,7 +19450,7 @@ kYiIiIiIBL3/BwDqTdKqQc9YAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display the results of the clustering from implementation</span>
@@ -20035,7 +20207,7 @@ rkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Inverse transform the centers</span>
@@ -20049,6 +20221,9 @@ rkJggg==
 <span class="n">true_centers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">true_centers</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">true_centers</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">segments</span>
 <span class="n">display</span><span class="p">(</span><span class="n">true_centers</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">true_centers</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">true_centers</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -20101,6 +20276,90 @@ rkJggg==
 
 </div>
 
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Segment 0</th>
+      <td>-5855.0</td>
+      <td>1242.0</td>
+      <td>2258.0</td>
+      <td>-1804.0</td>
+      <td>667.0</td>
+      <td>-369.0</td>
+    </tr>
+    <tr>
+      <th>Segment 1</th>
+      <td>-3560.0</td>
+      <td>-3894.0</td>
+      <td>-5493.0</td>
+      <td>-985.0</td>
+      <td>-2576.0</td>
+      <td>-789.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Segment 0</th>
+      <td>-2359.0</td>
+      <td>3411.0</td>
+      <td>5453.0</td>
+      <td>-258.0</td>
+      <td>2732.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>Segment 1</th>
+      <td>-64.0</td>
+      <td>-1725.0</td>
+      <td>-2298.0</td>
+      <td>561.0</td>
+      <td>-511.0</td>
+      <td>-230.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -20123,8 +20382,11 @@ rkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>Segment 0 would be a cafe. It uses a lot of Milk, Groery and Detergents_Paper.</li>
-<li>Segment 1 would be a fresh food shop. It uses a lot of Fresh and less Detergents_Paper. </li>
+<li>Segment 0 would be a cafe. It uses a lot of Milk, Grocery and Detergents_Paper.</li>
+<li>Segment 1 would be a fresh food shop. It uses a lot of Fresh and less Detergents_Paper. <ul>
+<li>Additional comment: Because Grocery, Milk and Detergents are above zero when I calcurate "true_centers - data.mean()", Segment 0 might represent the retailer shop. In that sense, Segment 1 might represent small shop or cafe because of less use of the same categories, but it has a lot of Frozen.</li>
+</ul>
+</li>
 </ul>
 
 </div>
